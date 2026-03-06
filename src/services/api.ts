@@ -9,11 +9,11 @@ export const fetchInstagramProfile = async (username: string): Promise<Instagram
   return response.json();
 };
 
-export const analyzeProfile = async (profile: InstagramProfile): Promise<AnimeAnalysis> => {
+export const analyzeProfile = async (profile: InstagramProfile, refinement?: string): Promise<AnimeAnalysis> => {
   const response = await fetch('/api/analyze', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(profile)
+    body: JSON.stringify({ ...profile, refinement })
   });
   if (!response.ok) {
     throw new Error('Failed to analyze profile');

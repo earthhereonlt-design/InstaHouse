@@ -8,14 +8,23 @@ export interface InstagramProfile {
   biography?: string;
 }
 
-export interface AnimeAnalysis {
-  characterName: string;
-  reason: string;
-  colorTheme: string;
+export interface CharacterStats {
+  power: number; // 1-10
+  speed: number; // 1-10
+  technique: number; // 1-10
+  intelligence: number; // 1-10
+  aura: number; // 1-10
+  potential: number; // 1-10
 }
 
-export interface HouseConfig {
-  size: 'cottage' | 'modern' | 'villa' | 'mansion' | 'palace' | 'mega-palace' | 'castle';
-  floors: number;
-  decorationLevel: 'minimal' | 'medium' | 'high';
+export interface AnimeAnalysis {
+  characterName: string;
+  animeName: string;
+  signatureAbility: string;
+  stats: CharacterStats;
+  reason: string;
+  imageUrl: string;
+  matchPercentage: number;
+  characterArchetype: string;
+  colorTheme: string;
 }
