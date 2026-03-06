@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "JetBrains Mono", ui-sans-serif, system-ui, sans-serif;
+  --font-pixel: "Silkscreen", cursive;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-bg: #0c0c0c;
+  --color-bg-raised: #1a1a1a;
+  --color-bg-card: #141414;
+  --color-border: #2a2a2a;
+  --color-border-light: #404040;
+  --color-cream: #f5f5f0;
+  --color-warm: #e0e0d0;
+  --color-dim: #808080;
+  --color-muted: #606060;
+  --color-accent: #6090e0;
+}
+
+@layer base {
+  body {
+    @apply bg-bg font-sans text-warm antialiased uppercase;
+  }
+}
+
+@layer components {
+  .btn-press {
+    @apply active:translate-y-0.5 active:translate-x-0.5 transition-transform;
+  }
+  
+  .pixel-border {
+    @apply border-[3px] border-border bg-bg/70 backdrop-blur-sm;
+  }
+
+  .ticker-scroll {
+    animation: ticker var(--ticker-duration, 60s) linear infinite;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+}
